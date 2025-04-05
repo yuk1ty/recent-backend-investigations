@@ -1,0 +1,16 @@
+[package]
+name = "todo-poem"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "=1.0.97"
+poem = { version = "=3.1.8", features = ["anyhow"] }
+poem-openapi = { version = "=5.1.12", features = ["uuid", "redoc"] }
+sqlx = { version = "=0.8.3", features = [
+  "postgres",
+  "uuid",
+  "runtime-tokio-native-tls",
+] }
+tokio = { version = "=1.44.1", features = ["macros", "rt-multi-thread"] }
+uuid = { version = "1.16.0", features = ["v4"] }
