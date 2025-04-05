@@ -1,25 +1,25 @@
 #![allow(clippy::missing_errors_doc)]
 #![allow(clippy::unnecessary_struct_initialization)]
 #![allow(clippy::unused_async)]
+use axum::debug_handler;
 use loco_rs::prelude::*;
 use serde::{Deserialize, Serialize};
-use axum::debug_handler;
 
 use crate::models::_entities::todos::{ActiveModel, Entity, Model};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Params {
-    pub title: String,
-    pub description: String,
-    pub done: bool,
-    }
+    pub title: Option<String>,
+    pub description: Option<String>,
+    pub done: Option<bool>,
+}
 
 impl Params {
     fn update(&self, item: &mut ActiveModel) {
-      item.title = Set(self.title.clone());
-      item.description = Set(self.description.clone());
-      item.done = Set(self.done.clone());
-      }
+        item.title = Set(self.title.clone());
+        item.description = Set(self.description.clone());
+        item.done = Set(self.done.clone());
+    }
 }
 
 async fn load_item(ctx: &AppContext, id: i32) -> Result<Model> {

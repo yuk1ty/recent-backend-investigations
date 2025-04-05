@@ -2,6 +2,5 @@
 
 pub mod prelude;
 
-pub mod todo;
 pub mod todos;
 pub mod users;
