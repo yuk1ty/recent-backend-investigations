@@ -39,12 +39,14 @@ cargo run -p todo-poem
 まず、データベースマイグレーションを実行します。
 
 ```
+# todo_loco
 cargo loco db migrate
 ```
 
 次に、サーバーを起動します。
 
 ```
+# todo_loco
 cargo loco start
 ```
 
@@ -52,9 +54,17 @@ cargo loco start
 
 ### Cotの起動
 
+まず、データベースマイグレーションを実行します。
+
 ```
-cargo run -p todo-cot
+# todo_cot
+cot migration make
 ```
 
-`localhost:8083`にサーバーが起動します。
+```
+# todo_cot
+cargo run
+```
+
+`localhost:8000`にサーバーが起動します。
 
