@@ -1,7 +1,7 @@
 secret_key = "ab7a26ab3d7e6e35c6a45ab3f131ef17293543354bd22965d97e97af88c4c178"
 
 [database]
-url = "sqlite://db.sqlite3?mode=rwc"
+url = "postgresql://postgres:password@localhost:5432/todo_app_cot"
 
 [auth_backend]
 type = "database"
