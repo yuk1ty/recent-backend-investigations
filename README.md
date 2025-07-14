@@ -68,3 +68,20 @@ cargo run
 
 `localhost:8000`にサーバーが起動します。
 
+## 非同期ランタイムのバイナリサイズ
+
+tokioとsmolでそれぞれほとんど同じようなコードを用意し、バイナリサイズを比較してみました。smolの方が小さくなる傾向にはありそうですが、smolを使っている限りは劇的に差がある感じもしません。コードの内容によっては大きく差が出てるケースもあるかもしれません。
+
+```
+cd runtime
+cargo build --bin tokio --release
+cargo build --bin smol --release
+```
+
+```
+Size Date Modified Name
+732k 15 Jul 00:08   smol
+ 185 15 Jul 00:08   smol.d
+881k 15 Jul 00:08   tokio
+ 187 15 Jul 00:08   tokio.d
+```
